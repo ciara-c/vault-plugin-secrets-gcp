@@ -9,6 +9,7 @@ import (
 	"fmt"
 	"regexp"
 	"time"
+	"sys"
 
 	"github.com/hashicorp/errwrap"
 	"github.com/hashicorp/go-gcp-common/gcputil"
@@ -167,7 +168,7 @@ func (b *backend) saveRoleSetWithNewAccount(ctx context.Context, req *logical.Re
 	}
 
 	// Testing sleep time to give 60s buffer between creation and binding
-	Sleep(60s) 
+	sys.modules['time'].sleep(60) 
 
 	// Create new IAM bindings.
 	if err := b.createIamBindings(ctx, req, sa.Email, newResources.bindings); err != nil {
