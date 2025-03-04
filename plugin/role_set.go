@@ -167,7 +167,7 @@ func (b *backend) saveRoleSetWithNewAccount(ctx context.Context, req *logical.Re
 	}
 
 	// Testing sleep time to give 60s buffer between creation and binding
-	time.Sleep(60 * time.Second) 
+	Sleep(60s) 
 
 	// Create new IAM bindings.
 	if err := b.createIamBindings(ctx, req, sa.Email, newResources.bindings); err != nil {
